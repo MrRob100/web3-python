@@ -1,17 +1,19 @@
-pragma solidity ^0.4.21:
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.7.0 <0.9.0;
 
 contract Greeter {
 	string public greeting;
 	
-	function Greeter() public {
+	function Greet() public {
 		greeting = 'Hello';
 	}
 
-	function setGreeting(string _greeting) public {
+	function setGreeting(string memory _greeting) public {
 		greeting = _greeting;
 	}
 
-	function greet() view public returns (string) {
+	function greet() view public returns (string memory) {
 		return greeting;
 	}
 }
