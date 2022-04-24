@@ -10,4 +10,7 @@ rl = "HTTP://127.0.0.1:8545"
 web3 = Web3(Web3.HTTPProvider(blockchain_url))
 
 print(web3.isConnected())
-print(web3.eth.blockNumber)
+
+latest = web3.eth.blockNumber;
+print(latest)
+print(web3.eth.getBlock(latest))
