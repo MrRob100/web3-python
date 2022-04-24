@@ -4,7 +4,6 @@ from web3.middleware import construct_sign_and_send_raw_middleware
 
 import os
 from dotenv import load_dotenv, find_dotenv
-import web3
 
 load_dotenv(find_dotenv())
 
@@ -23,7 +22,7 @@ contract = web3.eth.contract(address=contract_address, abi=abi)
 
 print(contract.functions.greet().call())
 
-tx_hash = contract.functions.setGreeting('HEELLLLOOOOOO!!!').transact()
+tx_hash = contract.functions.setGreeting('POTATO').transact()
 
 web3.eth.waitForTransactionReceipt(tx_hash)
 
