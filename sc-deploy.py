@@ -30,4 +30,16 @@ Greeter = web3.eth.contract(abi=abi, bytecode=bytecode)
 
 tx_hash = Greeter.constructor().transact()
 
-print(tx_hash);
+tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+
+contract = web3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+
+print(contract.functions.greet().call())
+
+tx_hash = contract.functions.setGreeting('POTATO').transact()
+
+web3.eth.waitForTransactionReceipt(tx_hash)
+
+print('Updated contract greeting: {}'.format(
+    contract.functions.greet().call()
+))
